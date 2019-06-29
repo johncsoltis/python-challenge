@@ -46,14 +46,20 @@ with open(path, newline="") as csv_budget:
     #find the average change
     average = sum(changes)/total_months
 
-
-    print(f'This dataset contains {total_months} months')
-    print(f'The total revenue over all periods is ${total_revenue}')
-    print(f'The average change between periods is {average}')
-    print(f'Max change: {max_change}')
+output = (
+    print(f'This dataset contains {total_months} months'),
+    print(f'The total revenue over all periods is ${total_revenue}'),
+    print(f'The average change between periods is {average}'),
+    print(f'Max change: {max_change}'),
     print(f'Min change: {min_change}')
+)
 
+print(output)
 
-    text_file = open("results.txt", "w")
-    text_file.write()
-    text_file.close()
+text_file = open("results.txt", "w")
+text_file.write(' This dataset contains' + repr(total_months) + 'Months' + '\n' +
+                'The total revenue for all periods is $' + repr(total_revenue)+ '\n' +
+                'The average change between periods is $' + repr(average)+ '\n' +
+                'Max change: ' + repr(max_change) + '\n' +
+                'Min change: ' + repr(min_change))
+text_file.close()
